@@ -1,0 +1,98 @@
+$colors : (
+    primary: rgb(49, 59, 59),
+    letters: rgba(231, 241, 241, 0.884),
+    secondary: rgb(65, 64, 64), 
+    primary-lighten: lighten(#2C3434, 40%)
+
+);
+$padding: 30px;
+$borders: 15px;
+$mobile: 420px;
+
+@mixin mobile {
+    @media (max-width: #{$mobile}){
+        @content
+    }
+}
+
+body, html{
+    height: 100%;
+
+}
+
+body{
+    font-family: 'Verdana';
+    margin: 0;
+    background-image: url('./background.jpg');
+}
+label{
+               
+    margin-right: 10pc;
+   
+  }
+   
+    //nest the bg class div
+    
+div#bg{ 
+       
+      
+        color: map-get($colors, letters);
+        order:2;
+        align-self: center;
+        margin: auto;
+       
+
+        .form{
+        
+            padding: $padding;
+            border-radius: $borders;
+            margin: 1em auto;
+            box-shadow: 0 10px 30px gray;
+            background-color: rgba(90, 94, 93, 0.493);
+            width: 500px;
+            border: 5px solid;
+            border-width: 2px 2px 0 0;
+            border-color: rgba(243, 238, 238, 0.911);
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 25px;
+            @include mobile{
+                width: 12em;
+            }
+     }
+
+ }  //nest the form with a shadowed border
+div#buttons{
+
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    margin: 40px;
+}
+button{
+  background-color: map-get($colors, secondary);
+  border: map-get($colors, letters);
+  color: map-get($colors, letters);
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  border-radius: 25px;
+}
+.submit{
+  background-color: map-get($colors, secondary);
+  border: map-get($colors, letters);
+  color: map-get($colors, letters);
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  border-radius: 25px;
+  
+  @include mobile{
+    margin-left: 8.1em;
+}
+}
+    

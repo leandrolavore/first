@@ -1,0 +1,131 @@
+$colors : (
+    primary: rgb(49, 59, 59),
+    letters: rgba(231, 241, 241, 0.884),
+    secondary: rgb(65, 64, 64), 
+    primary-lighten: lighten(#2C3434, 40%)
+
+);
+$padding: 30px;
+$borders: 15px;
+$mobile: 420px;
+
+@mixin mobile {
+    @media (max-width: #{$mobile}){
+        @content
+    }
+}
+
+body, html{
+    height: 100%;
+
+}
+input, label {
+    display:block;
+    line-height: 1.6;
+
+}
+input, label {
+    display:block;
+    line-height: 1.6;
+
+}
+
+input :focus{
+    border: 3px solid rgb(2, 2, 2);
+   
+
+}
+
+
+body{
+    font-family: 'Verdana';
+    margin: 0;
+    background-image: url('./background.jpg');
+
+    .container{
+    
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+    
+    
+    
+        .imagelogo{
+        
+            order:1;
+            align-self: flex-start;
+            padding: 30px;
+            margin: auto;
+       
+
+        }
+   
+    //nest the bg class div
+        div#bg{ 
+       
+      
+        color: map-get($colors, letters);
+        order:2;
+        align-self: center;
+        margin: auto;
+        
+       
+
+        form#main-form{
+        
+            padding: $padding;
+            border-radius: $borders;
+            margin: 1em auto;
+            box-shadow: 0 10px 30px gray;
+            background-color: rgba(90, 94, 93, 0.493);
+            width: 400px;
+            border: 5px solid;
+            border-width: 2px 2px 0 0;
+            border-color: rgba(243, 238, 238, 0.911);
+            margin-left: auto;
+            margin-right: auto;
+            bottom: 50%; 
+            @include mobile{
+                width: 15em;
+            }
+            
+            label{
+               
+                margin-right: 10pc;
+                font-size: 10px;
+              }
+        }
+
+     }
+}
+
+        
+   
+    //nest the form with a shadowed border
+}
+.disclaimer{
+
+    font-weight: bold;
+    color: map-get($colors, primary);
+    margin-top: 50px;
+    align-content: center;
+    align-self: center;
+    @include mobile{
+        margin-left: 1em;
+    }
+}
+.submit{
+  background-color: map-get($colors, secondary);
+  border: map-get($colors, letters);
+  color: map-get($colors, letters);
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  border-radius: 25px;
+
+}
+
+    
