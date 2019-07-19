@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 require('dotenv').config()
-
+const path = require('path')
 
 const userRoute = require('./src/route/api/user.js');
 
@@ -21,18 +21,24 @@ mongoose.connect(KEY,
 
 
 
+app.use('/api/user', userRoute);
 
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static('client/build'))
 
+    app.get('*', (req, res)=>{
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+    })
+}
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, ()=> console.info(`the server is running on ${PORT}`));
 
 
 
-app.use('/api/user', userRoute);
 
 
-app.use(express.static('public'));
+
 
 //handler for 404
 app.use((req, res, next)=>{
