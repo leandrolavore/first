@@ -8,7 +8,7 @@ export default function Modal(props) {
 
         return (
             <div className="modal" >
-                <h1>Accept terms and conditions</h1><button className="modbtn" onClick={props.closeModal}>X</button>
+                <h1>Please , accept terms and conditions</h1><button className="modbtn" onClick={props.closeModal}>X</button>
             </div>
         )
     }else{
